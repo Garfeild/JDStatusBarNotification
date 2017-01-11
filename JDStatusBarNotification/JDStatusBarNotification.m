@@ -53,17 +53,10 @@
   return sharedInstance;
 }
 
-+ (UIView*)showDefaultStyleWithStatus:(NSString *)status;
++ (UIView*)showWithStatus:(NSString *)status;
 {
   return [[self sharedInstance] showWithStatus:status
 									 styleName:nil];
-}
-
-+ (UIView*)showWithStatus:(NSString *)status;
-{
-  
-  return [[self sharedInstance] showWithStatus:status
-                                     style:[self sharedInstance].activeStyle];
 }
 
 + (UIView*)showWithStatus:(NSString *)status
@@ -105,6 +98,14 @@
 + (void)updateStatus:(NSString *)status styleName:(NSString *)styleName;
 {
   [[self sharedInstance] updateStatus:status styleName:styleName];
+}
+
++ (void)updateStatus:(NSString *)status
+		dismissAfter:(NSTimeInterval)timeInterval
+		   styleName:(NSString *)styleName;
+{
+  [self updateStatus:status styleName:styleName];
+  [self dismissAfter:timeInterval];
 }
 
 
@@ -268,6 +269,10 @@
 {
   [self updateStyleWithName:styleName];
   [self updateStatus:status];
+  
+  // cancel previous dismissing & remove animations
+  [[NSRunLoop currentRunLoop] cancelPerformSelector:@selector(dismiss) target:self argument:nil];
+  [self.topBar.layer removeAllAnimations];
 }
 
 - (void)updateStyleWithName:(NSString *)styleName;

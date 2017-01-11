@@ -39,7 +39,6 @@ typedef JDStatusBarStyle*(^JDPrepareStyleBlock)(JDStatusBarStyle *style);
  *
  *  @return The presented notification view for further customization
  */
-+ (JDStatusBarView*)showDefaultStyleWithStatus:(NSString *)status;
 
 + (JDStatusBarView*)showWithStatus:(NSString *)status;
 
@@ -92,7 +91,13 @@ typedef JDStatusBarStyle*(^JDPrepareStyleBlock)(JDStatusBarStyle *style);
 
 + (void)updateStatus:(NSString *)status;
 
-+ (void)updateStatus:(NSString *)status styleName:(NSString *)styleName;
++ (void)updateStatus:(NSString *)status
+		   styleName:(NSString *)styleName;
+
++ (void)updateStatus:(NSString *)status
+		dismissAfter:(NSTimeInterval)timeInterval
+		   styleName:(NSString *)styleName;
+
 
 #pragma mark Dismissal
 

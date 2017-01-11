@@ -156,7 +156,7 @@ static NSString *const SBStyle2 = @"SBStyle2";
     if (section == 0) {
         if (row == 0) {
             self.indicatorStyle = UIActivityIndicatorViewStyleGray;
-            [JDStatusBarNotification showDefaultStyleWithStatus:status];
+            [JDStatusBarNotification showWithStatus:status];
         } else if (row == 1) {
             if(![JDStatusBarNotification isVisible]) {
                 self.indicatorStyle = UIActivityIndicatorViewStyleGray;
