@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F92B461D7EAEBE4261097D4 /* libPods-JDStatusBarNotificationExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6131415176110FEC3BD46736 /* libPods-JDStatusBarNotificationExample.a */; };
 		D228A0CA182DA75A006B7ABB /* SBSelectPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D228A0C9182DA75A006B7ABB /* SBSelectPropertyViewController.m */; };
 		D25B0FA5184F343700B8174B /* JDStatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B0FA4184F343600B8174B /* JDStatusBarView.m */; };
 		D25B0FA8184F364100B8174B /* JDStatusBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B0FA7184F364100B8174B /* JDStatusBarStyle.m */; };
@@ -21,13 +22,12 @@
 		D264F8C9182123D400DA0E53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264F8C8182123D400DA0E53 /* QuartzCore.framework */; };
 		D294B57B182D03E90042B5B4 /* SBCustomStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D294B579182D03E90042B5B4 /* SBCustomStyleViewController.m */; };
 		D294B57C182D03E90042B5B4 /* SBCustomStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D294B57A182D03E90042B5B4 /* SBCustomStyleViewController.xib */; };
-		D34E5C9AB857468496D1A147 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F89E831D0E4D728185F5B4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25F89E831D0E4D728185F5B4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B9B6AC31AFBD4E99FCA8FF1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A91AF330F57A7EF979C692C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2893DD4CE67E21B44DDAB34B /* Pods-JDStatusBarNotificationExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDStatusBarNotificationExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JDStatusBarNotificationExample/Pods-JDStatusBarNotificationExample.debug.xcconfig"; sourceTree = "<group>"; };
+		6131415176110FEC3BD46736 /* libPods-JDStatusBarNotificationExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JDStatusBarNotificationExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7744EEA4BD3B3097A02CB544 /* Pods-JDStatusBarNotificationExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDStatusBarNotificationExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDStatusBarNotificationExample/Pods-JDStatusBarNotificationExample.release.xcconfig"; sourceTree = "<group>"; };
 		D228A0C8182DA75A006B7ABB /* SBSelectPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSelectPropertyViewController.h; sourceTree = "<group>"; };
 		D228A0C9182DA75A006B7ABB /* SBSelectPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSelectPropertyViewController.m; sourceTree = "<group>"; };
 		D25B0FA3184F343600B8174B /* JDStatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarView.h; sourceTree = "<group>"; };
@@ -63,22 +63,13 @@
 				D264F8931820213200DA0E53 /* CoreGraphics.framework in Frameworks */,
 				D264F8951820213200DA0E53 /* UIKit.framework in Frameworks */,
 				D264F8911820213200DA0E53 /* Foundation.framework in Frameworks */,
-				D34E5C9AB857468496D1A147 /* libPods.a in Frameworks */,
+				4F92B461D7EAEBE4261097D4 /* libPods-JDStatusBarNotificationExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		472386A3CD6B7782EEBDA061 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A91AF330F57A7EF979C692C8 /* Pods.debug.xcconfig */,
-				7B9B6AC31AFBD4E99FCA8FF1 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D264F8841820213200DA0E53 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +77,7 @@
 				D264F8961820213200DA0E53 /* JDStatusBarNotificationExample */,
 				D264F88F1820213200DA0E53 /* Frameworks */,
 				D264F88E1820213200DA0E53 /* Products */,
-				472386A3CD6B7782EEBDA061 /* Pods */,
+				E693A7D99B79ACC8A0BE2E56 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +96,7 @@
 				D264F8921820213200DA0E53 /* CoreGraphics.framework */,
 				D264F8C8182123D400DA0E53 /* QuartzCore.framework */,
 				D264F8941820213200DA0E53 /* UIKit.framework */,
-				25F89E831D0E4D728185F5B4 /* libPods.a */,
+				6131415176110FEC3BD46736 /* libPods-JDStatusBarNotificationExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +143,15 @@
 			path = ../JDStatusBarNotification;
 			sourceTree = "<group>";
 		};
+		E693A7D99B79ACC8A0BE2E56 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2893DD4CE67E21B44DDAB34B /* Pods-JDStatusBarNotificationExample.debug.xcconfig */,
+				7744EEA4BD3B3097A02CB544 /* Pods-JDStatusBarNotificationExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,11 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D264F8B91820213200DA0E53 /* Build configuration list for PBXNativeTarget "JDStatusBarNotificationExample" */;
 			buildPhases = (
-				19D14A518C194828B485308D /* Check Pods Manifest.lock */,
+				C777D8744BAE83D57C3F8987 /* [CP] Check Pods Manifest.lock */,
 				D264F8891820213200DA0E53 /* Sources */,
 				D264F88A1820213200DA0E53 /* Frameworks */,
 				D264F88B1820213200DA0E53 /* Resources */,
-				03403319612740B2B638E4BA /* Copy Pods Resources */,
+				86449BF8CAF33D631A16471F /* [CP] Embed Pods Frameworks */,
+				7743D941E8DF42AABF4BACC4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,34 +215,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03403319612740B2B638E4BA /* Copy Pods Resources */ = {
+		7743D941E8DF42AABF4BACC4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDStatusBarNotificationExample/Pods-JDStatusBarNotificationExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		19D14A518C194828B485308D /* Check Pods Manifest.lock */ = {
+		86449BF8CAF33D631A16471F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDStatusBarNotificationExample/Pods-JDStatusBarNotificationExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C777D8744BAE83D57C3F8987 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -350,7 +366,7 @@
 		};
 		D264F8BA1820213200DA0E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A91AF330F57A7EF979C692C8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2893DD4CE67E21B44DDAB34B /* Pods-JDStatusBarNotificationExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -366,7 +382,7 @@
 		};
 		D264F8BB1820213200DA0E53 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B9B6AC31AFBD4E99FCA8FF1 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7744EEA4BD3B3097A02CB544 /* Pods-JDStatusBarNotificationExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

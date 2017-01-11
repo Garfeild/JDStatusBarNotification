@@ -2,6 +2,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 inhibit_all_warnings!
 
-pod 'InfColorPicker'
-pod 'FTFontSelector'
+target 'JDStatusBarNotificationExample' do
+    project 'JDStatusBarNotificationExample'
 
+    pod 'InfColorPicker'
+    pod 'FTFontSelector'
+end

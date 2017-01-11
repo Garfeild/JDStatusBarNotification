@@ -53,10 +53,17 @@
   return sharedInstance;
 }
 
-+ (UIView*)showWithStatus:(NSString *)status;
++ (UIView*)showDefaultStyleWithStatus:(NSString *)status;
 {
   return [[self sharedInstance] showWithStatus:status
-                                     styleName:nil];
+									 styleName:nil];
+}
+
++ (UIView*)showWithStatus:(NSString *)status;
+{
+  
+  return [[self sharedInstance] showWithStatus:status
+                                     style:[self sharedInstance].activeStyle];
 }
 
 + (UIView*)showWithStatus:(NSString *)status
@@ -84,6 +91,22 @@
   [self dismissAfter:timeInterval];
   return view;
 }
+
++ (void)setActiveStyle:(NSString *)styleName;
+{
+  [[self sharedInstance] updateStyleWithName:styleName];
+}
+
++ (void)updateStatus:(NSString *)status;
+{
+  [[self sharedInstance] updateStatus:status];
+}
+
++ (void)updateStatus:(NSString *)status styleName:(NSString *)styleName;
+{
+  [[self sharedInstance] updateStatus:status styleName:styleName];
+}
+
 
 + (void)dismiss;
 {
@@ -176,15 +199,22 @@
 
 #pragma mark Presentation
 
-- (UIView*)showWithStatus:(NSString *)status
-                styleName:(NSString*)styleName;
+- (JDStatusBarStyle *)styleByName:(NSString *)styleName;
 {
   JDStatusBarStyle *style = nil;
   if (styleName != nil) {
-    style = self.userStyles[styleName];
+	style = self.userStyles[styleName];
   }
-
+  
   if (style == nil) style = self.defaultStyle;
+  
+  return style;
+}
+
+- (UIView*)showWithStatus:(NSString *)status
+                styleName:(NSString*)styleName;
+{
+  JDStatusBarStyle *style = [self styleByName:styleName];
   return [self showWithStatus:status style:style];
 }
 
@@ -196,8 +226,7 @@
 
   // prepare for new style
   if (style != self.activeStyle) {
-    self.activeStyle = style;
-    if (self.activeStyle.animationType == JDStatusBarAnimationTypeFade) {
+    if (style.animationType == JDStatusBarAnimationTypeFade) {
       self.topBar.alpha = 0.0;
       self.topBar.transform = CGAffineTransformIdentity;
     } else {
@@ -213,27 +242,14 @@
   // create & show window
   [self.overlayWindow setHidden:NO];
 
-  // update style
-  self.topBar.backgroundColor = style.barColor;
-  self.topBar.textVerticalPositionAdjustment = style.textVerticalPositionAdjustment;
-  UILabel *textLabel = self.topBar.textLabel;
-  textLabel.textColor = style.textColor;
-  textLabel.font = style.font;
-  textLabel.accessibilityLabel = status;
-  textLabel.text = status;
-
-  if (style.textShadow) {
-    textLabel.shadowColor = style.textShadow.shadowColor;
-    textLabel.shadowOffset = style.textShadow.shadowOffset;
-  } else {
-    textLabel.shadowColor = nil;
-    textLabel.shadowOffset = CGSizeZero;
-  }
-
-  // reset progress & activity
+    // reset progress & activity
   self.progress = 0.0;
   [self showActivityIndicator:NO indicatorStyle:0];
 
+  [self updateStyle:style];
+  
+  [self updateStatus:status];
+  
   // animate in
   BOOL animationsEnabled = (style.animationType != JDStatusBarAnimationTypeNone);
   if (animationsEnabled && style.animationType == JDStatusBarAnimationTypeBounce) {
@@ -246,6 +262,47 @@
   }
 
   return self.topBar;
+}
+
+- (void)updateStatus:(NSString *)status styleName:(NSString *)styleName;
+{
+  [self updateStyleWithName:styleName];
+  [self updateStatus:status];
+}
+
+- (void)updateStyleWithName:(NSString *)styleName;
+{
+  JDStatusBarStyle *style = [self styleByName:styleName];
+  [self updateStyle:style];
+}
+
+- (void)updateStyle:(JDStatusBarStyle*)style;
+{
+  if (style != self.activeStyle) {
+	self.activeStyle = style;
+  }
+  
+  // update style
+  self.topBar.backgroundColor = style.barColor;
+  self.topBar.textVerticalPositionAdjustment = style.textVerticalPositionAdjustment;
+  UILabel *textLabel = self.topBar.textLabel;
+  textLabel.textColor = style.textColor;
+  textLabel.font = style.font;
+
+  if (style.textShadow) {
+	textLabel.shadowColor = style.textShadow.shadowColor;
+	textLabel.shadowOffset = style.textShadow.shadowOffset;
+  } else {
+	textLabel.shadowColor = nil;
+	textLabel.shadowOffset = CGSizeZero;
+  }
+}
+
+- (void)updateStatus:(NSString *)status;
+{
+  UILabel *textLabel = self.topBar.textLabel;
+  textLabel.accessibilityLabel = status;
+  textLabel.text = status;
 }
 
 #pragma mark Dismissal

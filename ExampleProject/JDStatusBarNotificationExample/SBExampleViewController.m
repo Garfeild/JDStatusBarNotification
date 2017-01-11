@@ -65,6 +65,8 @@ static NSString *const SBStyle2 = @"SBStyle2";
         self.data = @[@[@{JDButtonName:@"Show Notification", JDButtonInfo:@"JDStatusBarStyleDefault", JDNotificationText:@"Better call Saul!"},
                         @{JDButtonName:@"Show Progress", JDButtonInfo:@"0-100% in 1s", JDNotificationText:@"Some Progress…"},
                         @{JDButtonName:@"Show Activity Indicator", JDButtonInfo:@"UIActivityIndicatorViewStyleGray", JDNotificationText:@"Some Activity…"},
+						@{JDButtonName:@"Update Notification", JDButtonInfo:@"JDStatusBarStyleDefault", JDNotificationText:@"Wait, Paul!"},
+						@{JDButtonName:@"Update Notification & Style", JDButtonInfo:@"JDStatusBarStyleSuccess", JDNotificationText:@"Oh no, we need Mark!"},
                         @{JDButtonName:@"Dismiss Notification", JDButtonInfo:@"Animated", JDNotificationText:@""}],
                       @[@{JDButtonName:@"Show JDStatusBarStyleError", JDButtonInfo:@"Duration: 2s", JDNotificationText:@"No, I don't have the money.."},
                         @{JDButtonName:@"Show JDStatusBarStyleWarning", JDButtonInfo:@"Duration: 2s", JDNotificationText:@"You know who I am!"},
@@ -154,7 +156,7 @@ static NSString *const SBStyle2 = @"SBStyle2";
     if (section == 0) {
         if (row == 0) {
             self.indicatorStyle = UIActivityIndicatorViewStyleGray;
-            [JDStatusBarNotification showWithStatus:status];
+            [JDStatusBarNotification showDefaultStyleWithStatus:status];
         } else if (row == 1) {
             if(![JDStatusBarNotification isVisible]) {
                 self.indicatorStyle = UIActivityIndicatorViewStyleGray;
@@ -168,7 +170,11 @@ static NSString *const SBStyle2 = @"SBStyle2";
             }
             [JDStatusBarNotification showActivityIndicator:YES
                                             indicatorStyle:self.indicatorStyle];
-        } else if (row == 3) {
+		} else if ( row == 3 ) {
+		  [JDStatusBarNotification updateStatus:status];
+		} else if ( row == 4 ) {
+		  [JDStatusBarNotification updateStatus:status styleName:JDStatusBarStyleSuccess];
+		} else if (row == 5) {
             [JDStatusBarNotification dismiss];
         }
     } else if (section == 1) {

@@ -39,7 +39,10 @@ typedef JDStatusBarStyle*(^JDPrepareStyleBlock)(JDStatusBarStyle *style);
  *
  *  @return The presented notification view for further customization
  */
++ (JDStatusBarView*)showDefaultStyleWithStatus:(NSString *)status;
+
 + (JDStatusBarView*)showWithStatus:(NSString *)status;
+
 
 /**
  *  Show a notification with a specific style. It won't
@@ -84,6 +87,12 @@ typedef JDStatusBarStyle*(^JDPrepareStyleBlock)(JDStatusBarStyle *style);
 + (JDStatusBarView*)showWithStatus:(NSString *)status
                       dismissAfter:(NSTimeInterval)timeInterval
                          styleName:(NSString*)styleName;
+
++ (void)setActiveStyle:(NSString *)styleName;
+
++ (void)updateStatus:(NSString *)status;
+
++ (void)updateStatus:(NSString *)status styleName:(NSString *)styleName;
 
 #pragma mark Dismissal
 
